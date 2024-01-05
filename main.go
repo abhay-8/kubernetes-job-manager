@@ -12,9 +12,6 @@ import (
 
 var clientset = &kubernetes.Clientset{}
 
-const jobName = "test-job-clientgo"
-const cronJobName = "test-cronjob-clientgo"
-
 func init() {
 	var kubeconfig *string
 
@@ -29,7 +26,7 @@ func init() {
 		log.Fatal(err)
 	}
 
-	clientset, err := kubernetes.NewForConfig(config)
+	_, err = kubernetes.NewForConfig(config)
 	if err != nil {
 		log.Fatal(err)
 	}
